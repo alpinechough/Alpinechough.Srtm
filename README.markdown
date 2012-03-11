@@ -9,6 +9,7 @@ Hello World
 To write your first application, create an empty .NET project in your favorite language in MonoDevelop or Visual Studio and reference the Alpinechough.Srtm library. Download [N47E011.hgt](http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/) and store this file the "SrtmDataFiles" folder.
 
 	using System;
+	using Alpinechough.Srtm;
 	
 	class SrtmDemo {
 		static void Main () {
@@ -45,4 +46,4 @@ SOFTWARE.
 Contact
 -------
 
-[Andreas Windischer](andreas.windischer@alpinechough.com)
+Andreas Windischer (andreas.windischer@alpinechough.com)
