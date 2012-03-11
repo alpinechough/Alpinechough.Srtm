@@ -22,7 +22,7 @@ To write your first application, create an empty .NET project in your favorite l
 License
 -------
 
-MIT License
+[MIT License](http://www.opensource.org/licenses/mit-license.html)
 Copyright (c) 2012 Alpine Chough Software.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
