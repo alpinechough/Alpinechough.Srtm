@@ -1,7 +1,7 @@
-SRTM C#.NET Library
+SRTM .NET Library
 ===================
 
-Alpinechough.Srtm is a C#.NET library for reading the [Shuttle Radar Topography Mission (SRTM)](http://www2.jpl.nasa.gov/srtm/) data files, which may be obtained through this URL: [http://dds.cr.usgs.gov/srtm/](http://dds.cr.usgs.gov/srtm/)
+Alpinechough.Srtm is a .NET library (written in C#) for reading the [Shuttle Radar Topography Mission (SRTM)](http://www2.jpl.nasa.gov/srtm/) data files, which may be obtained through this URL: [http://dds.cr.usgs.gov/srtm/](http://dds.cr.usgs.gov/srtm/)
 
 Hello World
 -----------
@@ -13,7 +13,7 @@ To write your first application, create an empty .NET project in your favorite l
 	
 	class SrtmDemo {
 		static void Main () {
-			SrtmData srtmData=new SrtmData("SrtmDataFiles");
+			SrtmData srtmData = new SrtmData("SrtmDataFiles");
 			int elevation = srtmData.GetHeight(new GeographicalCoordinates (47.267222, 11.392778));
 			Console.WriteLine("Elevation of Innsbruck: {0}m", elevation);
 		}
