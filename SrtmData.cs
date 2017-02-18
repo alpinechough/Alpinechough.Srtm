@@ -104,11 +104,17 @@ namespace Alpinechough.Srtm
 		{
 			int cellLatitude = (int)Math.Floor (Math.Abs (coordinates.Latitude));
 			if (coordinates.Latitude < 0)
+			{
 				cellLatitude *= -1;
+				cellLatitude -= 1; // because negative so in bottom tile
+			}
 			
 			int cellLongitude = (int)Math.Floor (Math.Abs (coordinates.Longitude));
 			if (coordinates.Longitude < 0)
+			{
 				cellLongitude *= -1;
+				cellLongitude -= 1; // because negative so in left tile
+			}
 
 			SrtmDataCell dataCell = DataCells.Where (dc => dc.Latitude == cellLatitude && dc.Longitude == cellLongitude).FirstOrDefault ();
 			if (dataCell != null)
