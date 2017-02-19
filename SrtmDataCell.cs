@@ -72,11 +72,17 @@ namespace Alpinechough.Srtm
 			
 			Latitude = int.Parse (fileCoordinate [0]);
 			if (filename.Contains ("s"))
+			{
 				Latitude *= -1;
+				Latitude += 1;
+			}
 			
 			Longitude = int.Parse (fileCoordinate [1]);
 			if (filename.Contains ("w"))
+			{
 				Longitude *= -1;
+				Longitude += 1;
+			}
 			
 			HgtData = File.ReadAllBytes (filepath);
 			
@@ -149,10 +155,8 @@ namespace Alpinechough.Srtm
 		{
 			int localLat = (int)((coordinates.Latitude - Latitude) * PointsPerCell);
 			int localLon = (int)(((coordinates.Longitude - Longitude)) * PointsPerCell);
-			int bytesPos = ((PointsPerCell - localLat - 1) * PointsPerCell * 2) + localLon * 2;
+			int bytesPos = ((PointsPerCell - Math.Abs(localLat) - 1) * PointsPerCell * 2) + Math.Abs(localLon) * 2;
 
-			Console.WriteLine (bytesPos);
-			
 			if (bytesPos < 0 || bytesPos > PointsPerCell * PointsPerCell * 2)
 				throw new ArgumentOutOfRangeException ("Coordinates out of range.", "coordinates");
 			
