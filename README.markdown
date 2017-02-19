@@ -13,12 +13,12 @@ To write your first application, create an empty .NET project in your favorite l
 	
 	class SrtmDemo {
 		static void Main () {
-			SrtmData srtmData = new SrtmData("SrtmDataFiles");
+			ISrtmData srtmData = new SrtmData("SrtmDataFiles");
 			
-			int? elevationInnsbruck = srtmData.GetHeight(new GeographicalCoordinates (47.267222, 11.392778));
+			int? elevationInnsbruck = srtmData.GetElevation(new GeographicalCoordinates (47.267222, 11.392778));
 			Console.WriteLine("Elevation of Innsbruck: {0}m", elevationInnsbruck);
 			
-			int? elevationLaPaz = srtmData.GetHeight(new GeographicalCoordinates (-16.5, -68.15));
+			int? elevationLaPaz = srtmData.GetElevation(new GeographicalCoordinates (-16.5, -68.15));
 			Console.WriteLine("Elevation of La Paz: {0}m", elevationLaPaz);
 		}
 	}

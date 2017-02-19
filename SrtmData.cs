@@ -34,7 +34,7 @@ namespace Alpinechough.Srtm
 	/// <exception cref='DirectoryNotFoundException'>
 	/// Is thrown when part of a file or directory argument cannot be found.
 	/// </exception>
-	public class SrtmData
+	public class SrtmData : ISrtmData
 	{
 		#region Lifecycle
 		
@@ -89,10 +89,10 @@ namespace Alpinechough.Srtm
 		}
 		
 		/// <summary>
-		/// Gets the height.
+		/// Gets the elevation.
 		/// </summary>
 		/// <returns>
-		/// The height. Null, if height is not available.
+		/// The height. Null, if elevation is not available.
 		/// </returns>
 		/// <param name='coordinates'>
 		/// Coordinates.
@@ -100,7 +100,7 @@ namespace Alpinechough.Srtm
 		/// <exception cref='Exception'>
 		/// Represents errors that occur during application execution.
 		/// </exception>
-		public int? GetHeight (IGeographicalCoordinates coordinates)
+		public int? GetElevation (IGeographicalCoordinates coordinates)
 		{
 			int cellLatitude = (int)Math.Floor (Math.Abs (coordinates.Latitude));
 			if (coordinates.Latitude < 0)
@@ -118,7 +118,7 @@ namespace Alpinechough.Srtm
 
 			SrtmDataCell dataCell = DataCells.Where (dc => dc.Latitude == cellLatitude && dc.Longitude == cellLongitude).FirstOrDefault ();
 			if (dataCell != null)
-				return dataCell.GetHeight (coordinates);
+				return dataCell.GetElevation (coordinates);
 			
 			string filename = string.Format ("{0}{1:D2}{2}{3:D3}.hgt",
 				cellLatitude < 0 ? "S" : "N",
@@ -133,7 +133,7 @@ namespace Alpinechough.Srtm
 			
 			dataCell = new SrtmDataCell (filePath);
 			DataCells.Add (dataCell);
-			return dataCell.GetHeight (coordinates);
+			return dataCell.GetElevation (coordinates);
 		}
 		
 		#endregion
