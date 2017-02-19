@@ -133,19 +133,18 @@ namespace Alpinechough.Srtm
 		#region Public Methods
 		
 		/// <summary>
-		/// Gets the height.
+		/// Gets the elevation.
 		/// </summary>
 		/// <returns>
-		/// The height.
+		/// The height. Null, if elevation is not available.
 		/// </returns>
 		/// <param name='coordinates'>
 		/// Coordinates.
 		/// </param>
-		/// <exception cref='ArgumentOutOfRangeException'>
-		/// Is thrown when an argument passed to a method is invalid because it is outside the allowable range of values as
-		/// specified by the method.
+		/// <exception cref='Exception'>
+		/// Represents errors that occur during application execution.
 		/// </exception>
-		public int? GetHeight (IGeographicalCoordinates coordinates)
+		public int? GetElevation (IGeographicalCoordinates coordinates)
 		{
 			int localLat = (int)((coordinates.Latitude - Latitude) * PointsPerCell);
 			int localLon = (int)(((coordinates.Longitude - Longitude)) * PointsPerCell);

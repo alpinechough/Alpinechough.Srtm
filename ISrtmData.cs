@@ -36,10 +36,10 @@ namespace Alpinechough.Srtm
 		void Unload ();
 		
 		/// <summary>
-		/// Gets the height.
+		/// Gets the elevation.
 		/// </summary>
 		/// <returns>
-		/// The height. Null, if height is not available.
+		/// The height. Null, if elevation is not available.
 		/// </returns>
 		/// <param name='coordinates'>
 		/// Coordinates.
@@ -47,7 +47,7 @@ namespace Alpinechough.Srtm
 		/// <exception cref='Exception'>
 		/// Represents errors that occur during application execution.
 		/// </exception>
-		int? GetHeight (IGeographicalCoordinates coordinates);
+		int? GetElevation (IGeographicalCoordinates coordinates);
 	}
 }
 
