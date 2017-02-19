@@ -6,7 +6,7 @@ Alpinechough.Srtm is a .NET library (written in C#) for reading the [Shuttle Rad
 Hello World
 -----------
 
-To write your first application, create an empty .NET project in your favorite language in MonoDevelop or Visual Studio and reference the Alpinechough.Srtm library. Download [N47E011.hgt](http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/) and store this file the "SrtmDataFiles" folder.
+To write your first application, create an empty .NET project in your favorite language in MonoDevelop or Visual Studio and reference the Alpinechough.Srtm library. Download [N47E011.hgt](http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/Eurasia/N47E011.hgt.zip) and [S17W069.hgt](http://dds.cr.usgs.gov/srtm/version2_1/SRTM3/South_America/S17W069.hgt.zip). Store the files in the "SrtmDataFiles" folder.
 
 	using System;
 	using Alpinechough.Srtm;
@@ -14,8 +14,12 @@ To write your first application, create an empty .NET project in your favorite l
 	class SrtmDemo {
 		static void Main () {
 			SrtmData srtmData = new SrtmData("SrtmDataFiles");
-			int elevation = srtmData.GetHeight(new GeographicalCoordinates (47.267222, 11.392778));
-			Console.WriteLine("Elevation of Innsbruck: {0}m", elevation);
+			
+			int elevationInnsbruck = srtmData.GetHeight(new GeographicalCoordinates (47.267222, 11.392778));
+			Console.WriteLine("Elevation of Innsbruck: {0}m", elevationInnsbruck);
+			
+			int elevationLaPaz = srtmData.GetHeight(new GeographicalCoordinates (-16.5, -68.15));
+			Console.WriteLine("Elevation of La Paz: {0}m", elevationLaPaz);
 		}
 	}
 
